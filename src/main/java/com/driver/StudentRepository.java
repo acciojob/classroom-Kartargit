@@ -20,7 +20,7 @@ public class StudentRepository {
         teacherHashMap.put(teacher.getName(),teacher);
     }
     public void addStudentInTeacherList(String student,String teacher){
-        List<String> list ;
+        List<String> list  ;
         if(teacherListOfStudent.containsKey(teacher)){
             list = teacherListOfStudent.get(teacher);
         }
@@ -28,7 +28,7 @@ public class StudentRepository {
             list = new ArrayList<>();
         }
         list.add(student);
-        teacherHashMap.put(teacher, (Teacher) list);
+        teacherListOfStudent.put(teacher, list);
     }
     public void deleteTeacherByName(String teacherName){
         teacherHashMap.remove(teacherName);

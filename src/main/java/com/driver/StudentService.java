@@ -31,8 +31,8 @@ public class StudentService {
         return repositoryObj.teacherListOfStudent.get(teacherName);
     }
     public List<String> getAllStudents(){
-        List<String> list = repositoryObj.studentList;
-        return list;
+
+        return repositoryObj.studentList;
     }
     public void deleteTeacherByName(String teacherName){
         repositoryObj.deleteTeacherByName(teacherName);
