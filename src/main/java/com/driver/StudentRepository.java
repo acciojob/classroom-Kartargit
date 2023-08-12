@@ -11,6 +11,7 @@ public class StudentRepository {
     public HashMap<String,Student> studentHashMap = new HashMap<>();
     public HashMap<String, List<String>> teacherListOfStudent = new HashMap<>();
     public List<String> studentList = new ArrayList<>();
+
     public void addStudent(Student student){
         studentHashMap.put(student.getName(),student);
         studentList.add(student.getName());
@@ -19,7 +20,13 @@ public class StudentRepository {
         teacherHashMap.put(teacher.getName(),teacher);
     }
     public void addStudentInTeacherList(String student,String teacher){
-        List<String> list = teacherListOfStudent.getOrDefault(teacher,new ArrayList<>());
+        List<String> list ;
+        if(teacherListOfStudent.containsKey(teacher)){
+            list = teacherListOfStudent.get(teacher);
+        }
+        else{
+            list = new ArrayList<>();
+        }
         list.add(student);
         teacherHashMap.put(teacher, (Teacher) list);
     }
